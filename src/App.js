@@ -19,7 +19,7 @@ const hideForm =()=>{
     <div className="container">
      <Header/>
      <div className='row'>
-        <div className='col-sm-3 app_bg_color' id='backlog'>
+        <div className='col app_bg_color' id='backlog'>
           <h5>Backlog</h5>
           <div className="d-grid gap-2">
             <button className='btn btn-secondary btn-sm' onClick={showForm}>+</button>
@@ -43,11 +43,11 @@ const hideForm =()=>{
           
         </div>
        
-        <div className='col-sm-3 app_bg_color' id='progress'>
+         <div className='col app_bg_color' id='progress'>
             <h5>Progress</h5>
         </div>
 
-        <div className='col-sm-3 app_bg_color' id='production'>
+        <div className='col app_bg_color' id='production'>
             <h5>Production</h5>
         </div>
      </div>
