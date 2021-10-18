@@ -47,7 +47,7 @@ const hideForm =()=>{
             </form>:''
         
         }
-
+        <br/>
          <TextBox data={changeStatusToBacklog()}/>
           
         </div>
