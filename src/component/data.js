@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default data=[{
+export const data=[{
         id:1,
         status:'backlog',
         title:'title 1',
@@ -41,3 +41,6 @@ export default data=[{
     }
 
 ]
+
+
+export const label=['Backlog', 'Progress', 'Production'];

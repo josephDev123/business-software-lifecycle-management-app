@@ -2,6 +2,9 @@ import React from 'react';
 import './component/app.css'
 import Header from './component/Header';
 import { useState, useRef } from 'react';
+import { label} from './component/data';
+import {changeStatusToBacklog} from './component/changeStatus';
+import TextBox from './component/textBox';
 
 function App() {
   const form_ref =useRef()
@@ -15,12 +18,16 @@ const hideForm =()=>{
   setshowAddContentForm(false)
 }
 
+
+
    return (
     <div className="container">
+{/* title of the project */}
      <Header/>
+
      <div className='row'>
         <div className='col app_bg_color' id='backlog'>
-          <h5>Backlog</h5>
+          <h5>{label[0]}</h5>
           <div className="d-grid gap-2">
             <button className='btn btn-secondary btn-sm' onClick={showForm}>+</button>
           </div>
@@ -40,15 +47,17 @@ const hideForm =()=>{
             </form>:''
         
         }
+
+         <TextBox data={changeStatusToBacklog()}/>
           
         </div>
        
          <div className='col app_bg_color' id='progress'>
-            <h5>Progress</h5>
+            <h5>{label[1]}</h5>
         </div>
 
         <div className='col app_bg_color' id='production'>
-            <h5>Production</h5>
+            <h5>{label[2]}</h5>
         </div>
      </div>
     </div>
