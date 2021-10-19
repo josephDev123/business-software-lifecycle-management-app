@@ -15,28 +15,48 @@ export const data=[{
 
     {
         id:3,
-        status:'progress',
+        status:'backlog',
         title:'title 3',
         content:'lorem ipsum'
     },
+
     {
         id:4,
         status:'progress',
         title:'title 4',
         content:'lorem ipsum'
     },
-
     {
         id:5,
-        status:'production',
+        status:'progress',
         title:'title 5',
+        content:'lorem ipsum'
+    },
+    {
+        id:6,
+        status:'progress',
+        title:'title 6',
         content:'lorem ipsum'
     },
 
     {
-        id:6,
+        id:7,
         status:'production',
-        title:'title 6',
+        title:'title 7',
+        content:'lorem ipsum'
+    },
+
+    {
+        id:8,
+        status:'production',
+        title:'title 8',
+        content:'lorem ipsum'
+    },
+
+    {
+        id:9,
+        status:'production',
+        title:'title 9',
         content:'lorem ipsum'
     }
 

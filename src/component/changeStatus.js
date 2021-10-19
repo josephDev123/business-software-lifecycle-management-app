@@ -5,6 +5,7 @@ export function changeStatusToBacklog() {
 
     return data.filter(item=> item.status ==='backlog');
 }
+
 export function changeStatusToProgress(){
     return data.filter(item=> item.status ==='progress');
 }

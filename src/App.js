@@ -6,6 +6,7 @@ import { label} from './component/data';
 import {changeStatusToBacklog, changeStatusToProgress, changeStatusToProduction} from './component/changeStatus';
 import TextBox from './component/textBox';
 import {useDrop} from 'react-dnd';
+import ITEM_TYPE from './component/item_type';
 
 function App() {
   const form_ref =useRef()
@@ -19,9 +20,7 @@ function App() {
     setshowAddContentForm(false)
   }
 
-  const [drop] =useDrop(()=>({
-    
-  }))
+ 
 
    return (
     <div className="container">
@@ -29,7 +28,7 @@ function App() {
      <Header/>
 
      <div className='row'>
-        <div className='col app_bg_color' id='backlog'>
+        <div className='col app_bg_color' id='backlog' >
           <h5>{label[0]}</h5>
           <div className="d-grid gap-2">
             <button className='btn btn-secondary btn-sm' onClick={showForm}>+</button>
@@ -55,7 +54,7 @@ function App() {
           
         </div>
        
-         <div className='col app_bg_color' id='progress'>
+         <div className='col app_bg_color' id='progress' >
             <h5>{label[1]}</h5>
             <TextBox data={changeStatusToProgress()}/>
         </div>
