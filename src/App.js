@@ -3,22 +3,25 @@ import './component/app.css'
 import Header from './component/Header';
 import { useState, useRef } from 'react';
 import { label} from './component/data';
-import {changeStatusToBacklog} from './component/changeStatus';
+import {changeStatusToBacklog, changeStatusToProgress, changeStatusToProduction} from './component/changeStatus';
 import TextBox from './component/textBox';
+import {useDrop} from 'react-dnd';
 
 function App() {
   const form_ref =useRef()
   const [showAddContentForm, setshowAddContentForm] =useState(false);
   //hide form
-const showForm =()=>{
-  setshowAddContentForm(true)
-}
+  const showForm =()=>{
+    setshowAddContentForm(true)
+  }
 
-const hideForm =()=>{
-  setshowAddContentForm(false)
-}
+  const hideForm =()=>{
+    setshowAddContentForm(false)
+  }
 
-
+  const [drop] =useDrop(()=>({
+    
+  }))
 
    return (
     <div className="container">
@@ -54,10 +57,13 @@ const hideForm =()=>{
        
          <div className='col app_bg_color' id='progress'>
             <h5>{label[1]}</h5>
+            <TextBox data={changeStatusToProgress()}/>
         </div>
 
         <div className='col app_bg_color' id='production'>
             <h5>{label[2]}</h5>
+            <TextBox data={changeStatusToProduction()}/>
+            
         </div>
      </div>
     </div>
