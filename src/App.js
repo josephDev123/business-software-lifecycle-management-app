@@ -10,13 +10,28 @@ import Card from './component/Card';
 
 
 function App() {
+    const [data, setData] = useState([{
+          id:1,
+          status:'backlog',
+          title:'title 1',
+          content:'lorem ipsum'
+      },
+      {
+          id:2,
+          status:'backlog',
+          title:'title 2',
+          content:'lorem ipsum'
+      }
+
+
+])
    return (
     <div className="container">
       <Header/>
       <Form />
       <Board_wrapper>
-        <Board >
-           <Card />
+        <Board >   
+           <Card/>
         </Board >
       </Board_wrapper >
     </div>
