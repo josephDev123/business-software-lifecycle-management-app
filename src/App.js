@@ -5,6 +5,7 @@ import { useState, useRef } from 'react';
 import Form from './component/Form';
 import Board_wrapper from './component/Board_wrapper';
 import Board from './component/Board';
+import Card from './component/Card';
 // import { label} from './component/data';
 
 
@@ -15,7 +16,7 @@ function App() {
       <Form />
       <Board_wrapper>
         <Board >
-          hello hello  hello  hello hello hello hello hello hello hello
+           <Card />
         </Board >
       </Board_wrapper >
     </div>
