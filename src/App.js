@@ -22,6 +22,18 @@ function App() {
           title:'title 2',
           content:'lorem ipsum'
       }
+      ,{
+        id:3,
+        status:'progress',
+        title:'title 3',
+        content:'lorem ipsum'
+    },
+    {
+        id:4,
+        status:'progress',
+        title:'title 4',
+        content:'lorem ipsum'
+    },
 
 
 ])
