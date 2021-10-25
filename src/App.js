@@ -30,8 +30,8 @@ function App() {
       <Header/>
       <Form />
       <Board_wrapper>
-        <Board >   
-           <Card/>
+        <Board >
+          <Card  item={data} />
         </Board >
       </Board_wrapper >
     </div>

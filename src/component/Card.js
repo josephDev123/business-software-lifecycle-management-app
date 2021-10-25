@@ -1,15 +1,24 @@
 import React from 'react'
 
-export default function Card({data}) {
+export default function Card({item}) {
+
     return (
         <div>
-           <div className="card" style={{ width: "15rem" }} draggable='true'>
-                <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
-                </div>
-            </div>
+            {
+                  item.map(data=>{
+                  return(
+                    <div className="card" style={{ width: "15rem" }} draggable='true' key={data.id}>
+                        <div className="card-body">
+                            <h5 className="card-title">{data.title}</h5>
+                            <p className="card-text">{data.content}</p>
+                            
+                        </div>
+                    </div>
+                  ) 
+                  
+                  })
+               }
+          
         </div>
     )
 }
