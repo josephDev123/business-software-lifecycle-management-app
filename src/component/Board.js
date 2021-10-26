@@ -4,14 +4,22 @@ export default function Board({children, data}) {
     let progress = data.filter(item=>item.status ==='progress');
     let production = data.filter(item=>item.status ==='production');
 
-    function handleDrop(){
+    function handleDrop(e){
+        e.preventDefault();
+        let card_id = e.dataTransfer.getData('card_id');
+        e.target.appendChild(document.getElementById(card_id));
+        console.log(e.target.firstElementChild.textContent);
 
     }
 
-    function handleOver(){
-
+    function handleOver(e){
+        e.preventDefault();
+       
     }
 
+    function handleDrag(e){
+        let drag_id = e.dataTransfer.setData('card_id', e.target.id)
+       }
 
     return (
         <div className='d-flex justify-content-around flex-wrap'>
@@ -29,7 +37,7 @@ export default function Board({children, data}) {
             {
                   progress.map(data=>{
                   return(
-                    <div className="card" style={{ width: "15rem" }} draggable='true' key={data.id}>
+                    <div className="card" style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag}  key={data.id} id={data.id}>
                         <div className="card-body">
                             <h5 className="card-title">{data.title}</h5>
                             <p className="card-text">{data.content}</p>
@@ -51,7 +59,7 @@ export default function Board({children, data}) {
             {
                   production.map(data=>{
                   return(
-                    <div className="card" style={{ width: "15rem" }} draggable='true' key={data.id}>
+                    <div className="card" style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag} key={data.id} id={data.id}>
                         <div className="card-body">
                             <h5 className="card-title">{data.title}</h5>
                             <p className="card-text">{data.content}</p>
