@@ -42,7 +42,7 @@ function App() {
       <Header/>
       <Form />
       <Board_wrapper>
-        <Board >
+        <Board data={data}>
           <Card  item={data} />
         </Board >
       </Board_wrapper >
