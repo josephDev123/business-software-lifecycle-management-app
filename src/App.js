@@ -3,7 +3,7 @@ import './component/app.css'
 import Header from './component/Header';
 import { useState, useRef } from 'react';
 import Form from './component/Form';
-import Board_wrapper from './component/Board_wrapper';
+import Boardwrapper from './component/Board_wrapper';
 import Board from './component/Board';
 import Card from './component/Card';
 // import { label} from './component/data';
@@ -41,11 +41,11 @@ function App() {
     <div className="container">
       <Header/>
       <Form />
-      <Board_wrapper>
+      <Boardwrapper>
         <Board data={data}>
           <Card  item={data} />
         </Board >
-      </Board_wrapper >
+      </Boardwrapper >
     </div>
   );
 }

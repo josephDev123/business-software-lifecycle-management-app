@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Board_wrapper(props) {
+export default function Boardwrapper(props) {
     return (
         <div className='bg-dark px-4'>
             {props.children}
