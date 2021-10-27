@@ -14,6 +14,7 @@ export default function Board({children, data}) {
             )  
             })
 
+// filter and loop through data that have status of production
     let production = data.filter(item=>item.status ==='production');
     let productionDataArray = production.map(data=>{
             return(
@@ -27,14 +28,30 @@ export default function Board({children, data}) {
             })
 
 
-
     function handleDrop(e){
         e.preventDefault();
         let card_id = e.dataTransfer.getData('card_id');
         e.target.appendChild(document.getElementById(card_id));
         let board_status = e.target.firstElementChild.textContent;
-       let 
-
+      
+        if(board_status==='Backlog'){
+            console.log('backlog');
+            data.forEach(element => {
+                // (element.id==card_id)?element.status='backlog':'' 
+           if (element.id == card_id) {
+            element.status='backlog'
+           }
+            
+                console.log(data);
+            });
+           
+           
+        }else if (board_status==='Progress') {
+            console.log('Progress');
+        } else if (board_status==='Production') {
+            console.log('Production');
+        }
+    
 
 
     }
