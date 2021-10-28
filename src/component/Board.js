@@ -37,19 +37,32 @@ export default function Board({children, data}) {
         if(board_status==='Backlog'){
             console.log('backlog');
             data.forEach(element => {
-                // (element.id==card_id)?element.status='backlog':'' 
            if (element.id == card_id) {
-            element.status='backlog'
-           }
-            
+             element.status='backlog'
+           } 
                 console.log(data);
             });
            
            
-        }else if (board_status==='Progress') {
+        }else if (board_status=='Progress') {
             console.log('Progress');
-        } else if (board_status==='Production') {
+            data.forEach(element => { 
+           if (element.id == card_id) {
+             element.status='progress'
+           } 
+                console.log(data);
+            });
+
+        }else if (board_status=='Production') {
             console.log('Production');
+            data.forEach(element => { 
+                if (element.id == card_id) {
+                  element.status='production'
+                } 
+                     console.log(data);
+                 });
+        }else{
+            return '';
         }
     
 
@@ -62,7 +75,8 @@ export default function Board({children, data}) {
     }
 
     function handleDrag(e){
-        let drag_id = e.dataTransfer.setData('card_id', e.target.id)
+        let drag_id = e.dataTransfer.setData('card_id', e.target.id);
+        e.stopPropagation();
        }
 
     return (
