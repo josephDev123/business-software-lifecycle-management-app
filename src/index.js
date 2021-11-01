@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { HTML5Backend } from 'react-dnd-html5-backend'
-import { DndProvider } from 'react-dnd'
+import {Provider} from 'react-redux';
+
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <DndProvider backend={HTML5Backend}>
+    <Provider >
        <App />
-    </DndProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
