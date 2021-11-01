@@ -59,7 +59,7 @@ export default function Board({children, data}) {
                 if (element.id == card_id) {
                   element.status='production'
                 } 
-                     console.log(data);
+                    //  console.log(data);
                  });
         }else{
             return '';

@@ -1,7 +1,7 @@
 import React from 'react';
 import './component/app.css'
 import Header from './component/Header';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Form from './component/Form';
 import Boardwrapper from './component/Board_wrapper';
 import Board from './component/Board';
@@ -33,10 +33,12 @@ function App() {
         status:'progress',
         title:'title 4',
         content:'lorem ipsum'
-    },
-
-
+    }
 ])
+
+
+
+
    return (
     <div className="container">
       <Header/>
