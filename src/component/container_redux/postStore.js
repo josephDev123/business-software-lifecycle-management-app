@@ -2,7 +2,7 @@ import React from 'react'
 import { configureStore } from '@reduxjs/toolkit';
 import postReducer from './PostSlice';
 
-export default PostStore= configureStore({
+export const PostStore= configureStore({
     reducer:{
         post:postReducer
     }

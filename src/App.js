@@ -7,36 +7,13 @@ import Boardwrapper from './component/Board_wrapper';
 import Board from './component/Board';
 import Card from './component/Card';
 // import { label} from './component/data';
-
+import {useSelector} from 'react-redux';
+import {addPost} from './component/container_redux/PostSlice';
+ 
 
 function App() {
-    const [data, setData] = useState([{
-          id:1,
-          status:'backlog',
-          title:'title 1',
-          content:'lorem ipsum'
-      },
-      {
-          id:2,
-          status:'backlog',
-          title:'title 2',
-          content:'lorem ipsum'
-      }
-      ,{
-        id:3,
-        status:'progress',
-        title:'title 3',
-        content:'lorem ipsum'
-    },
-    {
-        id:4,
-        status:'progress',
-        title:'title 4',
-        content:'lorem ipsum'
-    }
-])
-
-
+let data = useSelector(state => state.post);
+console.log(data);
 
 
    return (

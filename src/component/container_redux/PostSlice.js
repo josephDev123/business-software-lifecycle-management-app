@@ -1,10 +1,10 @@
 import React from 'react'
-import { configureStore } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
-export default PostSlice = createSlice({
+export const PostSlice = createSlice({
     name:'post',
-    initial_state:
-        [{
+    initialState: [
+        {
             id:1,
             status:'backlog',
             title:'title 1',
@@ -15,8 +15,8 @@ export default PostSlice = createSlice({
             status:'backlog',
             title:'title 2',
             content:'lorem ipsum'
-        }
-        ,{
+        },
+        {
           id:3,
           status:'progress',
           title:'title 3',
