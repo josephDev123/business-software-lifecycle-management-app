@@ -8,12 +8,12 @@ import Board from './component/Board';
 import Card from './component/Card';
 // import { label} from './component/data';
 import {useSelector} from 'react-redux';
-import {addPost} from './component/container_redux/PostSlice';
  
 
 function App() {
+  
 let data = useSelector(state => state.post);
-console.log(data);
+// console.log(data);
 
 
    return (
