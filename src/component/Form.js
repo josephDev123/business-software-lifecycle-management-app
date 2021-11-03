@@ -20,6 +20,7 @@ let dispatch = useDispatch();
 
     // handle title field
     const handleTitleField =(e)=>{
+        
         setTitle(e.target.value)
     }
 
@@ -29,13 +30,15 @@ let dispatch = useDispatch();
     }
 
     // submit form
-    const handleAddpost =()=>{
+    const handleAddpost =(e)=>{
+        e.preventDefault()
         dispatch(addPost({
             id:uuidv4(),
             status:'backlog',
             title:title,
             content:content
         }))
+
     }
 
 
