@@ -13,7 +13,14 @@ export const PostSlice = createSlice({
 
         changeState: (state, action)=>{
             const {cardid, boardStatus} = action.payload;
-            return state.map(item=>item.id === cardid? {...item, status:boardStatus}:{...item})
+            // return state.map(item=>item.id === cardid? {...item, status:boardStatus}:{...item})
+            return state.map(item=> {
+                if(item.id === cardid){
+                    return {...item, status:boardStatus}
+                }else{
+                    return item
+                }
+            })
     },
 }
 
