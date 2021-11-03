@@ -40,7 +40,7 @@ export default function Board({children, data}) {
         if(board_status==='Backlog'){
             console.log('backlog');
             dispatch(changeState({
-                card_id:card_id,
+                cardid:card_id,
                 boardStatus:'backlog'
             }))
         //     data.forEach(element => {
@@ -54,7 +54,7 @@ export default function Board({children, data}) {
         }else if (board_status=='Progress') {
             console.log('Progress');
             dispatch(changeState({
-                card_id:card_id,
+                cardid:card_id,
                 boardStatus:'progress'
             }))
         //     data.forEach(element => { 
@@ -67,7 +67,7 @@ export default function Board({children, data}) {
         }else if (board_status=='Production') {
             console.log('Production');
             dispatch(changeState({
-                card_id:card_id,
+                cardid:card_id,
                 boardStatus:'production'
             }))
             // data.forEach(element => { 

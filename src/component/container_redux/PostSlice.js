@@ -8,14 +8,12 @@ export const PostSlice = createSlice({
     reducers:{
         addPost:(state, action)=>{
             // state.push(action.payload)
-            let payload = action.payload
-           return [...state, payload]
+           return [...state, action.payload]
         },
 
         changeState: (state, action)=>{
             const {cardid, boardStatus} = action.payload;
-           const index =  state.map(item=>item.id==cardid?item.status = boardStatus:'');
-           return index;
+            return state.map(item=>item.id === cardid? {...item, status:boardStatus}:{...item})
     },
 }
 
