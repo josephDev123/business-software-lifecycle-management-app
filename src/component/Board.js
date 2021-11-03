@@ -1,6 +1,9 @@
 import React from 'react'
+import { changeState } from './container_redux/PostSlice';
+import {useDispatch} from 'react-redux';
 
 export default function Board({children, data}) {
+    let dispatch  =useDispatch();
     // filter and loop through data that have status of progress
     let progress = data.filter(item=>item.status ==='progress');
     let progressDataArray = progress.map(data=>{
@@ -36,31 +39,43 @@ export default function Board({children, data}) {
       
         if(board_status==='Backlog'){
             console.log('backlog');
-            data.forEach(element => {
-           if (element.id == card_id) {
-             element.status='backlog'
-           } 
-                console.log(data);
-            });
+            dispatch(changeState({
+                card_id:card_id,
+                boardStatus:'backlog'
+            }))
+        //     data.forEach(element => {
+        //    if (element.id == card_id) {
+        //      element.status='backlog'
+        //    } 
+        //         console.log(data);
+        //     });
            
            
         }else if (board_status=='Progress') {
             console.log('Progress');
-            data.forEach(element => { 
-           if (element.id == card_id) {
-             element.status='progress'
-           } 
-                console.log(data);
-            });
+            dispatch(changeState({
+                card_id:card_id,
+                boardStatus:'progress'
+            }))
+        //     data.forEach(element => { 
+        //    if (element.id == card_id) {
+        //      element.status='progress'
+        //    } 
+        //         console.log(data);
+        //     });
 
         }else if (board_status=='Production') {
             console.log('Production');
-            data.forEach(element => { 
-                if (element.id == card_id) {
-                  element.status='production'
-                } 
-                    //  console.log(data);
-                 });
+            dispatch(changeState({
+                card_id:card_id,
+                boardStatus:'production'
+            }))
+            // data.forEach(element => { 
+            //     if (element.id == card_id) {
+            //       element.status='production'
+            //     } 
+            //         //  console.log(data);
+            //      });
         }else{
             return '';
         }

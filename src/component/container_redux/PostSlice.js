@@ -3,28 +3,23 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const PostSlice = createSlice({
     name:'post',
-    initialState: [],
+    initialState:[]
+    ,
     reducers:{
         addPost:(state, action)=>{
             // state.push(action.payload)
-            return [...state, action.payload];
+            let payload = action.payload
+           return [...state, payload]
         },
 
         changeState: (state, action)=>{
             const {cardid, boardStatus} = action.payload;
-            return state.map(item =>{
-                if (item.id !== cardid) {
-                    return {...item};
-                }
-                return {
-                    ...item, 
-                    ...item.status=boardStatus
-                }
-            })
+           const index =  state.map(item=>item.id==cardid?item.status = boardStatus:'');
+           return index;
     },
 }
 
 })
 
-export const{addPost} = PostSlice.actions;
+export const{addPost, changeState} = PostSlice.actions;
 export default PostSlice.reducer;
