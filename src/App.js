@@ -11,8 +11,9 @@ import {useSelector} from 'react-redux';
  
 
 function App() {
-  
+ 
 let data = useSelector(state => state.post);
+
 console.log(data);
 
 
