@@ -5,7 +5,8 @@ export default function Card({item}) {
 
     function handleDrag(e){
      let drag_id = e.dataTransfer.setData('card_id', e.target.id);
-     e.stopPropagation();
+    //  e.stopPropagation();
+ 
     }
 
     return (
