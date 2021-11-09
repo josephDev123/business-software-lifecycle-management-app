@@ -39,6 +39,10 @@ export default function Board({children, data}) {
         let card_id = e.dataTransfer.getData('card_id');
         e.target.appendChild(document.getElementById(card_id));
         let board_status = e.target.firstElementChild.textContent;
+        // setTimeout(()=>{
+        //     e.target.remove(card_id);
+        // }, 500)
+       
 
       console.log(card_id);
         if(board_status==='Backlog'){
