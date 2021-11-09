@@ -1,18 +1,18 @@
 import React from 'react'
 
 export default function Card({item}) {
-    const backlog = item.filter(filters=> filters.status === 'backlog');
+    const backlog = item.filter(filters=> filters.status ==='backlog');
 
     function handleDrag(e){
      let drag_id = e.dataTransfer.setData('card_id', e.target.id);
      let drag_card = e.target;
     //  console.log(drag_card);
-     let card_wrapper =e.target.parentElement.parentElement;
-     console.log(card_wrapper);
-    //  e.stopPropagation();
+     let card_wrapper =e.target.parentElement.previousElementSibling.parentElement;
+    //  console.log(card_wrapper);
+    // //  e.stopPropagation();
     // setTimeout(()=>{
-    //     card_wrapper.removeChild(drag_card);
-    // }, 500)
+        // card_wrapper.removeChild(drag_card);
+    // }, 1500)
  
     }
 

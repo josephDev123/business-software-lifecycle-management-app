@@ -39,9 +39,15 @@ export default function Board({children, data}) {
         let card_id = e.dataTransfer.getData('card_id');
         e.target.appendChild(document.getElementById(card_id));
         let board_status = e.target.firstElementChild.textContent;
-        // setTimeout(()=>{
-        //     e.target.remove(card_id);
-        // }, 500)
+        let card_wrapper =e.target.parentElement.firstElementChild;
+        // let card_wrapper =e.target.parentElement.parentElement.firstElementChild;
+
+    //    let dropped_card = e.target.children[1];
+    //     console.log(card_wrapper);
+    //     console.log(dropped_card);
+    //     setTimeout(()=>{
+    //         card_wrapper.removeChild(dropped_card);
+    //     }, 500)
        
 
       console.log(card_id);
@@ -94,7 +100,13 @@ export default function Board({children, data}) {
 
     function handleOver(e){
         e.preventDefault();
-       
+        let wrapper = e.target
+        let dropped_card = e.target.children[1];
+        console.log(wrapper);
+        setTimeout(()=>{
+            wrapper.removeChild(dropped_card)
+        }, 500)
+        
     }
 
     function handleDrag(e){
