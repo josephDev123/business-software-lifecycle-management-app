@@ -42,14 +42,14 @@ export default function Board({children, data}) {
         let card_wrapper =e.target.parentElement.firstElementChild;
         // let card_wrapper =e.target.parentElement.parentElement.firstElementChild;
 
-    //    let dropped_card = e.target.children[1];
-    //     console.log(card_wrapper);
-    //     console.log(dropped_card);
-    //     setTimeout(()=>{
-    //         card_wrapper.removeChild(dropped_card);
-    //     }, 500)
+       let dropped_card = e.target.children[1];
+        // console.log(card_wrapper);
+        // console.log(dropped_card);
+        // setTimeout(()=>{
+            // card_wrapper.removeChild(dropped_card);
+        // }, 100)
        
-
+     
       console.log(card_id);
         if(board_status==='Backlog'){
             console.log('backlog');
@@ -100,13 +100,7 @@ export default function Board({children, data}) {
 
     function handleOver(e){
         e.preventDefault();
-        let wrapper = e.target
-        let dropped_card = e.target.children[1];
-        console.log(wrapper);
-        setTimeout(()=>{
-            wrapper.removeChild(dropped_card)
-        }, 500)
-        
+    
     }
 
     function handleDrag(e){
