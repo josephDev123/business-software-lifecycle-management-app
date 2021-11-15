@@ -48,9 +48,9 @@ export default function Board({children, data}) {
         console.log(card_wrapper);
         // console.log(dropped_card);
         //  setTimeout(()=>{
-            card_wrapper.removeChild(dropped_card);
+            // card_wrapper.removeChild(dropped_card);
         // }, 1500)
-       
+
      
       console.log(card_id);
         if(board_status==='Backlog'){
@@ -88,7 +88,7 @@ export default function Board({children, data}) {
 
     function handleDrag(e){
         let drag_id = e.dataTransfer.setData('card_id', e.target.id);
-        // e.stopPropagation();
+        e.stopPropagation();
        }
 
     return (

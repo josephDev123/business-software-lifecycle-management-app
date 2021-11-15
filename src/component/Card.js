@@ -10,9 +10,10 @@ export default function Card({item}) {
      let card_wrapper =e.target.parentElement.previousElementSibling.parentElement.nextElementSibling;
      console.log(card_wrapper);
      e.stopPropagation();
-    // setTimeout(()=>{
-        // card_wrapper.removeChild(drag_card);
-    // }, 1500)
+    setTimeout(()=>{
+        card_wrapper.removeChild(drag_card);
+       
+    }, 100)
  
     }
 
