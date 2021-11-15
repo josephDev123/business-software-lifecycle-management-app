@@ -55,24 +55,24 @@ export default function Board({children, data}) {
       console.log(card_id);
         if(board_status==='Backlog'){
             console.log('backlog');
-            dispatch(changeState({
-                cardid:card_id,
-                boardStatus:'backlog'
-            }))   
+            // dispatch(changeState({
+            //     cardid:card_id,
+            //     boardStatus:'backlog'
+            // }))   
            
         }else if (board_status=='Progress') {
             console.log('Progress');
-            dispatch(changeState({
-                cardid:card_id,
-                boardStatus:'progress'
-            }))
+            // dispatch(changeState({
+            //     cardid:card_id,
+            //     boardStatus:'progress'
+            // }))
 
         }else if (board_status=='Production') {
             console.log('Production');
-            dispatch(changeState({
-                cardid:card_id,
-                boardStatus:'production'
-            }))
+            // dispatch(changeState({
+            //     cardid:card_id,
+            //     boardStatus:'production'
+            // }))
         }else{
             return '';
         }
