@@ -5,7 +5,6 @@ import {useDispatch} from 'react-redux';
 export default function Board({children, data}) {
     let dispatch  =useDispatch();
 
-
     // filter and loop through data that have status of progress
     let progress = data.filter(item=>item.status ==='progress');
     let progressDataArray = progress.map(data=>{
@@ -55,24 +54,24 @@ export default function Board({children, data}) {
       console.log(card_id);
         if(board_status==='Backlog'){
             console.log('backlog');
-            // dispatch(changeState({
-            //     cardid:card_id,
-            //     boardStatus:'backlog'
-            // }))   
+            dispatch(changeState({
+                cardid:card_id,
+                boardStatus:'backlog'
+            }))   
            
         }else if (board_status=='Progress') {
             console.log('Progress');
-            // dispatch(changeState({
-            //     cardid:card_id,
-            //     boardStatus:'progress'
-            // }))
+            dispatch(changeState({
+                cardid:card_id,
+                boardStatus:'progress'
+            }))
 
         }else if (board_status=='Production') {
             console.log('Production');
-            // dispatch(changeState({
-            //     cardid:card_id,
-            //     boardStatus:'production'
-            // }))
+            dispatch(changeState({
+                cardid:card_id,
+                boardStatus:'production'
+            }))
         }else{
             return '';
         }

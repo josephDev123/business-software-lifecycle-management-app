@@ -23,7 +23,7 @@ console.log(data);
       <Form />
       <Boardwrapper>
         <Board data={data}>
-          <Card  item={data} />
+          {data.map(datas=> <Card key={datas.id} item={datas} /> )}
         </Board >
       </Boardwrapper >
     </div>
