@@ -14,7 +14,7 @@ function App() {
  
 let data = useSelector(state => state.post);
 
-// console.log(data);
+console.log(data);
    return (
     <div className="container">
       <Header/>
