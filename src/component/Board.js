@@ -44,7 +44,7 @@ export default function Board({children, data}) {
         // let card_wrapper =e.target.parentElement.parentElement.firstElementChild;
         
        let dropped_card = e.target.children[1];
-        console.log(card_wrapper);
+        // console.log(card_wrapper);
         // console.log(dropped_card);
         //  setTimeout(()=>{
             // card_wrapper.removeChild(dropped_card);

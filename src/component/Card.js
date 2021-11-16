@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-export default function Card({item}) {
+const Card = memo(({item})=> {
     const backlog = item.filter(filters=> filters.status ==='backlog');
 
     function handleDrag(e){
@@ -35,4 +35,5 @@ export default function Card({item}) {
           
         </div>
     )
-}
+})
+export default Card
