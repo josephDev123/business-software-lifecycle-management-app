@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import './component/app.css'
 import Header from './component/Header';
 import { useState, useRef, useEffect } from 'react';
@@ -10,13 +10,11 @@ import Card from './component/Card';
 import {useSelector} from 'react-redux';
  
 
-const App =memo(()=> {
+function App() {
  
 let data = useSelector(state => state.post);
 
-console.log(data);
-
-
+// console.log(data);
    return (
     <div className="container">
       <Header/>
@@ -28,7 +26,7 @@ console.log(data);
       </Boardwrapper >
     </div>
   );
-})
+}
 
 export default App;
 
