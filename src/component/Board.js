@@ -9,10 +9,12 @@ export default function Board({children, data}) {
     let progress = data.filter(item=>item.status ==='progress');
     let progressDataArray = progress.map(data=>{
             return(
-                <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag}  key={data.id} id={data.id}>
-                    <div className="card-body">
-                        <h5 className="card-title">{data.title}</h5>
-                        <p className="card-text">{data.content}</p>  
+                <div key={data.id}>
+                    <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag}  key={data.id} id={data.id}>
+                        <div className="card-body">
+                            <h5 className="card-title">{data.title}</h5>
+                            <p className="card-text">{data.content}</p>  
+                        </div>
                     </div>
                 </div>
                   )  
@@ -24,10 +26,12 @@ export default function Board({children, data}) {
     let production = data.filter(item=>item.status ==='production');
     let productionDataArray = production.map(data=>{
                 return(
-                    <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag} key={data.id} id={data.id}>
-                        <div className="card-body">
-                            <h5 className="card-title">{data.title}</h5>
-                            <p className="card-text">{data.content}</p>
+                    <div key={data.id}>
+                        <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag} key={data.id} id={data.id}>
+                            <div className="card-body">
+                                <h5 className="card-title">{data.title}</h5>
+                                <p className="card-text">{data.content}</p>
+                            </div>
                         </div>
                     </div>
                     ) 
@@ -43,9 +47,9 @@ export default function Board({children, data}) {
         let card_wrapper =e.target.parentElement;
         // let card_wrapper =e.target.parentElement.parentElement.firstElementChild;
         
-       let dropped_card = e.target.children[1];
+       let dropped_card = e.target.children[1].remove();
         // console.log(card_wrapper);
-        // console.log(dropped_card);
+        console.log(dropped_card);
         //  setTimeout(()=>{
             // card_wrapper.removeChild(dropped_card);
         // }, 1500)
@@ -91,7 +95,7 @@ export default function Board({children, data}) {
        }
 
     return (
-        <div>
+        // <div>
         <div className='d-flex justify-content-around flex-wrap'>
             {/* backlog board */}
                 <div className='d-flex flex-column bg-light mb-2 justify-content-start align-items-start px-4 flex-grow-1'  style={{ maxWidth: '300px',maxHeight:'100%' }} onDrop={handleDrop} onDragOver={handleOver}>
@@ -119,6 +123,6 @@ export default function Board({children, data}) {
                 
                 </div>
         </div>
-        </div>
+        // </div>
     )
 }
