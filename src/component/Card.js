@@ -4,11 +4,13 @@ export default function Card({item}) {
     const backlog = item.filter(filters=> filters.status ==='backlog');
     let card = backlog.map(data=>{
         return(
-            <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag} key={data.id} id={data.id}>
-                <div className="card-body">
-                    <h5 className="card-title">{data.title}</h5>
-                    <p className="card-text">{data.content}</p>
-                    
+            <div>
+                <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag} key={data.id} id={data.id}>
+                    <div className="card-body">
+                        <h5 className="card-title">{data.title}</h5>
+                        <p className="card-text">{data.content}</p>
+                        
+                    </div>
                 </div>
             </div>
           ) 

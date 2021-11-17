@@ -16,15 +16,18 @@ let data = useSelector(state => state.post);
 
 console.log(data);
    return (
+   
     <div className="container">
       <Header/>
       <Form />
-      <Boardwrapper>
-        <Board data={data}>
-           <Card item={data} />
-        </Board >
-      </Boardwrapper >
-    </div>
+      
+        <Boardwrapper>
+          <Board data={data}>
+            <Card item={data} />
+          </Board >
+        </Boardwrapper >
+      </div>
+  
   );
 }
 
