@@ -48,9 +48,10 @@ export default function Board({children, data}) {
         let board_status = e.target.firstElementChild.textContent;
         let card_wrapper =e.target.parentElement;
         
-       let dropped_card = e.target.children[1].remove();
+    //    let dropped_card = e.target.children[1].remove();
+    document.getElementById(card_id).remove();
         // console.log(card_wrapper);
-        console.log(dropped_card);
+        // console.log(dropped_card);
         
      
       console.log(card_id);
@@ -61,14 +62,14 @@ export default function Board({children, data}) {
                     boardStatus:'backlog'
                 }))    
            
-        }else if (board_status=='Progress') {
+        }else if (board_status==='Progress') {
             console.log('Progress');
                 dispatch(changeState({
                     cardid:card_id,
                     boardStatus:'progress'
                 })) 
 
-        }else if (board_status=='Production') {
+        }else if (board_status==='Production') {
             console.log('Production');
                 dispatch(changeState({
                     cardid:card_id,
