@@ -93,9 +93,10 @@ export default function Board({children, data}) {
        }
 
     return (
-        // <div>
+        <div>
         <div className='d-flex justify-content-around flex-wrap'>
             {/* backlog board */}
+            
                 <div className='d-flex flex-column bg-light mb-2 justify-content-start align-items-start px-4 flex-grow-1'  style={{ maxWidth: '300px',maxHeight:'100%' }} onDrop={handleDrop} onDragOver={handleOver}>
                     <h4>Backlog</h4>
                     {children}
@@ -121,6 +122,6 @@ export default function Board({children, data}) {
                 
                 </div>
         </div>
-        // </div>
+      </div> 
     )
 }
