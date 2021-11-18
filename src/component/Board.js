@@ -6,36 +6,38 @@ export default function Board({children, data}) {
     let dispatch  =useDispatch();
 
     // filter and loop through data that have status of progress
-    let progress = data.filter(item=>item.status ==='progress');
-    let progressDataArray = progress.map(data=>{
-            return(
-                <div key={data.id}>
-                    <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag}  key={data.id} id={data.id}>
-                        <div className="card-body">
-                            <h5 className="card-title">{data.title}</h5>
-                            <p className="card-text">{data.content}</p>  
+    let progressDataArray = data.map(data=>{
+            if(data.status ==='progress'){
+                return(
+                    <div key={data.id}>
+                        <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag}  key={data.id} id={data.id}>
+                            <div className="card-body">
+                                <h5 className="card-title">{data.title}</h5>
+                                <p className="card-text">{data.content}</p>  
+                            </div>
                         </div>
                     </div>
-                </div>
-                  )  
+                      )  
+            }
         
             })
 
 
 // filter and loop through data that have status of production
     let production = data.filter(item=>item.status ==='production');
-    let productionDataArray = production.map(data=>{
-                return(
-                    <div key={data.id}>
-                        <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag} key={data.id} id={data.id}>
-                            <div className="card-body">
-                                <h5 className="card-title">{data.title}</h5>
-                                <p className="card-text">{data.content}</p>
+    let productionDataArray = data.map(data=>{
+                    if(data.status ==='production'){
+                        return(
+                            <div key={data.id}>
+                                <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag} key={data.id} id={data.id}>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{data.title}</h5>
+                                        <p className="card-text">{data.content}</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    ) 
-          
+                            ) 
+                    }
             })
 
 
@@ -45,15 +47,11 @@ export default function Board({children, data}) {
         e.target.appendChild(document.getElementById(card_id));
         let board_status = e.target.firstElementChild.textContent;
         let card_wrapper =e.target.parentElement;
-        // let card_wrapper =e.target.parentElement.parentElement.firstElementChild;
         
        let dropped_card = e.target.children[1].remove();
         // console.log(card_wrapper);
         console.log(dropped_card);
-        //  setTimeout(()=>{
-            // card_wrapper.removeChild(dropped_card);
-        // }, 1500)
-
+        
      
       console.log(card_id);
         if(board_status==='Backlog'){
