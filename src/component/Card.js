@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import ReactModal from 'react-modal';
 
 export default function Card({item}) {
 
@@ -11,6 +12,9 @@ export default function Card({item}) {
                         <div className="card-body">
                             <h5 className="card-title">{data.title}</h5>
                             <p className="card-text">{data.content}</p>
+                            <ReactModal isOpen={false}>
+                                <p>Modal Content</p>
+                            </ReactModal>
                             
                         </div>
                     </div>
