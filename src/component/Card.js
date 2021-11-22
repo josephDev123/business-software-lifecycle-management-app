@@ -23,14 +23,7 @@ export default function Card({item}) {
     function handleDrag(e){
      let drag_id = e.dataTransfer.setData('card_id', e.target.id);
      let drag_card = e.target;
-    //  console.log(drag_card);
-    //  let card_wrapper =e.target.parentElement.previousElementSibling.parentElement.nextElementSibling;
-    //  console.log(card_wrapper);
      e.stopPropagation();
-    // setTimeout(()=>{
-    //     card_wrapper.removeChild(drag_card);
-       
-    // }, 100)
  
     }
 

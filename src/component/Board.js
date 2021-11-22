@@ -47,14 +47,7 @@ export default function Board({children, data}) {
         e.target.appendChild(document.getElementById(card_id));
         let board_status = e.target.firstElementChild.textContent;
         let card_wrapper =e.target.parentElement;
-        
-    //    let dropped_card = e.target.children[1].remove();
-    document.getElementById(card_id).remove();
-        // console.log(card_wrapper);
-        // console.log(dropped_card);
-        
-     
-      console.log(card_id);
+        document.getElementById(card_id).remove();
         if(board_status==='Backlog'){
             console.log('backlog');
                 dispatch(changeState({
@@ -79,8 +72,6 @@ export default function Board({children, data}) {
             return '';
         }
     
-
-        // e.stopPropagation();
     }
 
     function handleOver(e){
