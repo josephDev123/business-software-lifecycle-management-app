@@ -1,9 +1,11 @@
 import {React, useState} from 'react';
 import ReactModal from 'react-modal';
+import Modal from './Modal';
 
-ReactModal.setAppElement(document.getElementById('root'));
+
 export default function Card({item}) {
     
+    // const [openModal, setOpenModal] = useState(false);
     const [modal, setModal] = useState(false);
     console.log(modal);
         let card = item.map(data=>{
@@ -16,16 +18,18 @@ export default function Card({item}) {
                             <h5 className="card-title">{data.title}</h5>
                             <p className="card-text">{data.content}</p>
                         </div>
+                        {/* <Modal modalProps={openModal} /> */}
+                                    
                         <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
-                                <h3>Modal Content</h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
-                                <button onClick={()=>setModal(false)}>Close</button>
-                            </ReactModal>
+                            <h3>Modal Content</h3>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+                            <button onClick={()=>setModal(false)}>Close</button>
+                        </ReactModal>
                     </div>
                 </div>
               ) 
         }
-       
+      
   })
 
     function handleDrag(e){

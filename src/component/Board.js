@@ -2,11 +2,13 @@ import {React, useState} from 'react'
 import { changeState } from './container_redux/PostSlice';
 import {useDispatch} from 'react-redux';
 import ReactModal from 'react-modal';
+import Modal from './Modal';
 
 ReactModal.setAppElement(document.getElementById('root'));
 
 export default function Board({children, data}) {
     let dispatch  =useDispatch();
+    // const [openModal, setOpenModal] = useState(false);
     const [modal, setModal] = useState(false);
     // filter and loop through data that have status of progress
     let progressDataArray = data.map(data=>{
@@ -14,7 +16,7 @@ export default function Board({children, data}) {
                 return(
                     <div key={data.id}>
                         <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag}  key={data.id} id={data.id}>
-                            <div className="card-body">
+                            <div className="card-body" onClick={()=>setModal(true)}>
                                 <h5 className="card-title">{data.title}</h5>
                                 <p className="card-text">{data.content}</p>  
                             </div>
@@ -23,6 +25,7 @@ export default function Board({children, data}) {
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
                                 <button onClick={()=>setModal(false)}>Close</button>
                             </ReactModal>
+                            {/* <Modal modalProps={openModal} /> */}
                         </div>
                     </div>
                       )  
@@ -38,7 +41,7 @@ export default function Board({children, data}) {
                         return(
                             <div key={data.id}>
                                 <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag} key={data.id} id={data.id}>
-                                    <div className="card-body">
+                                    <div className="card-body" onClick={()=>setModal(true)}>
                                         <h5 className="card-title">{data.title}</h5>
                                         <p className="card-text">{data.content}</p>
                                     </div>
@@ -47,6 +50,7 @@ export default function Board({children, data}) {
                                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
                                         <button onClick={()=>setModal(false)}>Close</button>
                                     </ReactModal>
+                                  {/* <Modal modalProps={openModal} /> */}
                                 </div>
                             </div>
                             ) 
