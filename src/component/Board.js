@@ -1,10 +1,13 @@
-import React from 'react'
+import {React, useState} from 'react'
 import { changeState } from './container_redux/PostSlice';
 import {useDispatch} from 'react-redux';
+import ReactModal from 'react-modal';
+
+ReactModal.setAppElement(document.getElementById('root'));
 
 export default function Board({children, data}) {
     let dispatch  =useDispatch();
-
+    const [modal, setModal] = useState(false);
     // filter and loop through data that have status of progress
     let progressDataArray = data.map(data=>{
             if(data.status ==='progress'){
@@ -15,6 +18,11 @@ export default function Board({children, data}) {
                                 <h5 className="card-title">{data.title}</h5>
                                 <p className="card-text">{data.content}</p>  
                             </div>
+                            <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
+                                <h3>Modal Content</h3>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+                                <button onClick={()=>setModal(false)}>Close</button>
+                            </ReactModal>
                         </div>
                     </div>
                       )  
@@ -34,6 +42,11 @@ export default function Board({children, data}) {
                                         <h5 className="card-title">{data.title}</h5>
                                         <p className="card-text">{data.content}</p>
                                     </div>
+                                    <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
+                                        <h3>Modal Content</h3>
+                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+                                        <button onClick={()=>setModal(false)}>Close</button>
+                                    </ReactModal>
                                 </div>
                             </div>
                             ) 
