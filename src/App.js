@@ -26,6 +26,8 @@ console.log(data);
             <Card item={data} />
           </Board >
         </Boardwrapper >
+             <div className='mt-2'>Developed by <a href='https://github.com/josephDev123' target='_blank'>Uzuegbu, Joseph</a></div>
+      
       </div>
   
   );
