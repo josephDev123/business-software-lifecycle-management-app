@@ -21,9 +21,18 @@ export default function Card({item}) {
                         {/* <Modal modalProps={openModal} /> */}
                                     
                         <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
-                            <h3>Modal Content</h3>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
-                            <button onClick={()=>setModal(false)}>Close</button>
+                        <div class="card w-75 mx-auto border-primary">
+                            <div class="card-body">
+                                <h5 class="card-title">{data.title}</h5>
+                                <p class="card-text">{data.content}</p>
+                               <br/>
+                                <h5 class="card-title">Comment </h5>
+                                <textarea className='form-control'></textarea>
+                                <br/>
+                                <a href="#" class="btn btn-primary">Comment</a>
+                            </div>
+                        </div>
+                            <button className='btn btn-danger border' onClick={()=>setModal(false)}>Close</button>
                         </ReactModal>
                     </div>
                 </div>
