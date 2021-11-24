@@ -21,17 +21,17 @@ export default function Card({item}) {
                         {/* <Modal modalProps={openModal} /> */}
                                     
                         <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
-                        <div class="card w-75 mx-auto border-primary">
-                            <div class="card-body">
-                                <h5 class="card-title">{data.title}</h5>
-                                <p class="card-text">{data.content}</p>
-                               <br/>
-                                <h5 class="card-title">Comment </h5>
-                                <textarea className='form-control'></textarea>
+                            <div className="card w-75 mx-auto border-primary">
+                                <div className="card-body">
+                                    <h5 className="card-title">{data.title}</h5>
+                                    <p className="card-text">{data.content}</p>
                                 <br/>
-                                <a href="#" class="btn btn-primary">Comment</a>
+                                    <h5 className="card-title">Comment </h5>
+                                    <textarea className='form-control'></textarea>
+                                    <br/>
+                                    <a href="#" className="btn btn-primary">Comment</a>
+                                </div>
                             </div>
-                        </div>
                             <button className='btn btn-danger border' onClick={()=>setModal(false)}>Close</button>
                         </ReactModal>
                     </div>

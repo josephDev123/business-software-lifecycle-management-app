@@ -21,11 +21,19 @@ export default function Board({children, data}) {
                                 <p className="card-text">{data.content}</p>  
                             </div>
                             <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
-                                <h3>Modal Content</h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
-                                <button onClick={()=>setModal(false)}>Close</button>
+                                <div className="card w-75 mx-auto border-primary">
+                                <div className="card-body">
+                                    <h5 className="card-title">{data.title}</h5>
+                                    <p className="card-text">{data.content}</p>
+                                <br/>
+                                    <h5 className="card-title">Comment </h5>
+                                    <textarea className='form-control'></textarea>
+                                    <br/>
+                                    <a href="#" className="btn btn-primary">Comment</a>
+                                </div>
+                                </div>
+                                <button className='btn btn-danger border' onClick={()=>setModal(false)}>Close</button>
                             </ReactModal>
-                            {/* <Modal modalProps={openModal} /> */}
                         </div>
                     </div>
                       )  
@@ -46,11 +54,19 @@ export default function Board({children, data}) {
                                         <p className="card-text">{data.content}</p>
                                     </div>
                                     <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
-                                        <h3>Modal Content</h3>
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
-                                        <button onClick={()=>setModal(false)}>Close</button>
+                                        <div className="card w-75 mx-auto border-primary">
+                                            <div className="card-body">
+                                                <h5 className="card-title">{data.title}</h5>
+                                                <p className="card-text">{data.content}</p>
+                                            <br/>
+                                                <h5 className="card-title">Comment </h5>
+                                                <textarea className='form-control'></textarea>
+                                                <br/>
+                                                <a href="#" className="btn btn-primary">Comment</a>
+                                            </div>
+                                        </div>
+                                        <button className='btn btn-danger border' onClick={()=>setModal(false)}>Close</button>
                                     </ReactModal>
-                                  {/* <Modal modalProps={openModal} /> */}
                                 </div>
                             </div>
                             ) 
