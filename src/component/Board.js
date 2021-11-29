@@ -20,6 +20,7 @@ export default function Board({children, data}) {
                                 <h5 className="card-title">{data.title}</h5>
                                 <p className="card-text">{data.content}</p>  
                             </div>
+                           ` {/* modal section */}`
                             <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
                                 <div className="card w-75 mx-auto border-primary">
                                 <div className="card-body">
@@ -53,6 +54,7 @@ export default function Board({children, data}) {
                                         <h5 className="card-title">{data.title}</h5>
                                         <p className="card-text">{data.content}</p>
                                     </div>
+                                     {/* modal section */}
                                     <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
                                         <div className="card w-75 mx-auto border-primary">
                                             <div className="card-body">
