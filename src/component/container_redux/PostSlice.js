@@ -22,9 +22,14 @@ export const PostSlice = createSlice({
                 }
             })
     },
+
+    delete_card:(state, action)=>{
+        let card_id = action.payload;
+        return state.filter(item=> item.id !== card_id);
+    }
 }
 
 })
 
-export const{addPost, changeState} = PostSlice.actions;
+export const{addPost, changeState, delete_card} = PostSlice.actions;
 export default PostSlice.reducer;

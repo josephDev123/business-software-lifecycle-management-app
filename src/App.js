@@ -34,8 +34,3 @@ console.log(data);
 }
 
 export default App;
-
-
-
-// Uncaught DOMException: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
-//     at removeChild

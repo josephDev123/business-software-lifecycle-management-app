@@ -16,11 +16,12 @@ export default function Board({children, data}) {
                 return(
                     <div key={data.id}>
                         <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag}  key={data.id} id={data.id}>
-                            <div className="card-body" onClick={()=>setModal(true)}>
+                            <div className="card-body position-relative" onClick={()=>setModal(true)}>
                                 <h5 className="card-title">{data.title}</h5>
                                 <p className="card-text">{data.content}</p>  
                             </div>
-                           ` {/* modal section */}`
+                            <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translateX(-25px)` }}>x</button>
+                           {/* modal section */}
                             <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
                                 <div className="card w-75 mx-auto border-primary">
                                 <div className="card-body">
@@ -50,10 +51,11 @@ export default function Board({children, data}) {
                         return(
                             <div key={data.id}>
                                 <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag} key={data.id} id={data.id}>
-                                    <div className="card-body" onClick={()=>setModal(true)}>
+                                    <div className="card-body position-relative" onClick={()=>setModal(true)}>
                                         <h5 className="card-title">{data.title}</h5>
                                         <p className="card-text">{data.content}</p>
                                     </div>
+                                    <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translateX(-25px)` }}>x</button>
                                      {/* modal section */}
                                     <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
                                         <div className="card w-75 mx-auto border-primary">
