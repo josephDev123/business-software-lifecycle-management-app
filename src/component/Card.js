@@ -19,7 +19,7 @@ export default function Card({item}) {
                                 <h5 className="card-title">{data.title}</h5>
                                 <p className="card-text">{data.content}</p>
                             </div>
-                            <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translateX(-25px)` }}onClick={()=>handleCardDelete(data.id)}>x</button>
+                            <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translate(-25px, 10px)` }} onClick={()=>handleCardDelete(data.id)}>x</button>
                             {/* <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translateX(-25px)` }} onClick={()=>handleCardDelete(data.id)}> */}
                             <div id="1">         
                                 <ReactModal  isOpen={modal} onRequestClose={()=>setModal(false)}>

@@ -1,5 +1,5 @@
 import {React, useState} from 'react'
-import { changeState } from './container_redux/PostSlice';
+import { changeState, delete_card } from './container_redux/PostSlice';
 import {useDispatch} from 'react-redux';
 import ReactModal from 'react-modal';
 import Modal from './Modal';
@@ -20,7 +20,7 @@ export default function Board({children, data}) {
                                 <h5 className="card-title">{data.title}</h5>
                                 <p className="card-text">{data.content}</p>  
                             </div>
-                            <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translateX(-25px)` }}>x</button>
+                            <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translate(-25px, 10px)` }} onClick={()=>handleCardDelete(data.id)}>x</button>
                            {/* modal section */}
                             <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
                                 <div className="card w-75 mx-auto border-primary">
@@ -55,7 +55,7 @@ export default function Board({children, data}) {
                                         <h5 className="card-title">{data.title}</h5>
                                         <p className="card-text">{data.content}</p>
                                     </div>
-                                    <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translateX(-25px)` }}>x</button>
+                                    <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translate(-25px, 10px)` }} onClick={()=>handleCardDelete(data.id)}>x</button>
                                      {/* modal section */}
                                     <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
                                         <div className="card w-75 mx-auto border-primary">
@@ -77,6 +77,11 @@ export default function Board({children, data}) {
                     }
             })
 
+
+            function handleCardDelete(id){
+                console.log(id);
+                dispatch(delete_card(id));
+            }
 
     function handleDrop(e){
         e.preventDefault();
