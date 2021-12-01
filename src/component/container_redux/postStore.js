@@ -2,6 +2,7 @@ import React from 'react'
 import { configureStore } from '@reduxjs/toolkit';
 import postReducer from './PostSlice';
 import {saveState} from './LocalStorage';
+import { throttle } from 'throttle-debounce';
 
 export const PostStore= configureStore({
     reducer:{
@@ -9,6 +10,6 @@ export const PostStore= configureStore({
     }
 })
 
-PostStore.subscribe(()=>{
+PostStore.subscribe(throttle(()=>{
     saveState(PostStore.getState().post);
-})
+}))
