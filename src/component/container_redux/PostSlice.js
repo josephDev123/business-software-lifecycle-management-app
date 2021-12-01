@@ -1,9 +1,10 @@
 import React from 'react'
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import {loadState} from './LocalStorage';
 
 export const PostSlice = createSlice({
     name:'post',
-    initialState:[]
+    initialState:loadState()
     ,
     reducers:{
         addPost:(state, action)=>{
