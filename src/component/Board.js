@@ -1,5 +1,5 @@
 import {React, useState} from 'react'
-import { changeState, delete_card } from './container_redux/PostSlice';
+import { changeState, delete_card, openModal, closeModal } from './container_redux/PostSlice';
 import {useDispatch} from 'react-redux';
 import ReactModal from 'react-modal';
 import Modal from './Modal';
@@ -8,21 +8,20 @@ ReactModal.setAppElement(document.getElementById('root'));
 
 export default function Board({children, data}) {
     let dispatch  =useDispatch();
-    // const [openModal, setOpenModal] = useState(false);
-    const [modal, setModal] = useState(false);
+   
     // filter and loop through data that have status of progress
     let progressDataArray = data.map(data=>{
             if(data.status ==='progress'){
                 return(
                     <div key={data.id}>
                         <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag}  key={data.id} id={data.id}>
-                            <div className="card-body position-relative" onClick={()=>setModal(true)}>
+                            <div className="card-body position-relative" onClick={()=>handleOpenModel(data.id)}>
                                 <h5 className="card-title">{data.title}</h5>
                                 <p className="card-text">{data.content}</p>  
                             </div>
                             <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translate(-25px, 10px)` }} onClick={()=>handleCardDelete(data.id)}>x</button>
                            {/* modal section */}
-                            <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
+                            <ReactModal isOpen={data.modal} onRequestClose={()=>handleCloseModel(data.id)}>
                                 <div className="card w-75 mx-auto border-primary">
                                 <div className="card-body">
                                     <h5 className="card-title">{data.title}</h5>
@@ -34,7 +33,7 @@ export default function Board({children, data}) {
                                     <a href="#" className="btn btn-primary">Comment</a>
                                 </div>
                                 </div>
-                                <button className='btn btn-danger border' onClick={()=>setModal(false)}>Close</button>
+                                <button className='btn btn-danger border' onClick={()=>handleCloseModel(data.id)}>Close</button>
                             </ReactModal>
                         </div>
                     </div>
@@ -51,13 +50,13 @@ export default function Board({children, data}) {
                         return(
                             <div key={data.id}>
                                 <div className="card" data-status={data.status} style={{ width: "15rem" }} draggable='true' onDragStart={handleDrag} key={data.id} id={data.id}>
-                                    <div className="card-body position-relative" onClick={()=>setModal(true)}>
+                                    <div className="card-body position-relative" onClick={()=>handleOpenModel(data.id)}>
                                         <h5 className="card-title">{data.title}</h5>
                                         <p className="card-text">{data.content}</p>
                                     </div>
                                     <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translate(-25px, 10px)` }} onClick={()=>handleCardDelete(data.id)}>x</button>
                                      {/* modal section */}
-                                    <ReactModal isOpen={modal} onRequestClose={()=>setModal(false)}>
+                                    <ReactModal isOpen={data.modal} onRequestClose={()=>handleCloseModel(data.id)}>
                                         <div className="card w-75 mx-auto border-primary">
                                             <div className="card-body">
                                                 <h5 className="card-title">{data.title}</h5>
@@ -69,7 +68,7 @@ export default function Board({children, data}) {
                                                 <a href="#" className="btn btn-primary">Comment</a>
                                             </div>
                                         </div>
-                                        <button className='btn btn-danger border' onClick={()=>setModal(false)}>Close</button>
+                                        <button className='btn btn-danger border' onClick={()=>handleCloseModel(data.id)}>Close</button>
                                     </ReactModal>
                                 </div>
                             </div>
@@ -79,9 +78,16 @@ export default function Board({children, data}) {
 
 
             function handleCardDelete(id){
-                console.log(id);
                 dispatch(delete_card(id));
             }
+
+            function handleOpenModel(id){
+                dispatch(openModal(id))
+            }
+          
+            function handleCloseModel(id){
+              dispatch(closeModal(id))
+          }
 
     function handleDrop(e){
         e.preventDefault();

@@ -36,7 +36,8 @@ let dispatch = useDispatch();
             id:uuidv4(),
             status:'backlog',
             title:title,
-            content:content
+            content:content,
+            modal:false
         }))
 
     }
