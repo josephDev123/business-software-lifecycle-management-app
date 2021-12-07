@@ -16,7 +16,7 @@ export default function Card({item}) {
                         key={data.id} id={data.id}>
                             <div className="card-body position-relative" onClick={()=>handleOpenModel(data.id)}>
                                 <h5 className="card-title">{data.title}</h5>
-                                <p className="card-text">{data.content}</p>
+                                <p className="card-text">{data.content}</p> 
                             </div>
                             <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translate(-25px, 10px)` }} onClick={()=>handleCardDelete(data.id)}>x</button>
                             {/* <button className='btn btn-danger btn-sm position-absolute start-100' style={{ transform:`translateX(-25px)` }} onClick={()=>handleCardDelete(data.id)}> */}
@@ -26,6 +26,7 @@ export default function Card({item}) {
                                         <div className="card-body">
                                             <h5 className="card-title">{data.title}</h5>
                                             <p className="card-text">{data.content}</p>
+                                            <a href={data.github} target='_blank'>Github link</a>
                                             <br/>
                                             <h5 className="card-title">Comment </h5>
                                             <textarea className='form-control'></textarea>
