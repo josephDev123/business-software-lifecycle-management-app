@@ -26,7 +26,7 @@ export default function Card({item}) {
                                         <div className="card-body">
                                             <h5 className="card-title">{data.title}</h5>
                                             <p className="card-text">{data.content}</p>
-                                            <a href={data.github} target='_blank'>Github link</a>
+                                            <a href={data.github} className='' target='_blank'>Github link</a>
                                             <br/>
                                             <h5 className="card-title">Comment </h5>
                                             <textarea className='form-control'></textarea>
