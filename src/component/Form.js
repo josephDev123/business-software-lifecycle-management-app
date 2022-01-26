@@ -9,6 +9,7 @@ let dispatch = useDispatch();
     const [showForm, setshowForm] = useState(false);
     const [title, setTitle] = useState();
     const [content, setContent] = useState();
+    const [github, setGithub] = useState();
 
     function show(){
         setshowForm(true);
@@ -29,6 +30,12 @@ let dispatch = useDispatch();
         setContent(e.target.value)
     }
 
+       // handle github field
+       const handleGithub =(e)=>{
+        setGithub(e.target.value)
+    }
+
+
     // submit form
     const handleAddpost =(e)=>{
         e.preventDefault()
@@ -36,7 +43,9 @@ let dispatch = useDispatch();
             id:uuidv4(),
             status:'backlog',
             title:title,
-            content:content
+            content:content,
+            github:github,
+            modal:false
         }))
 
     }
@@ -51,9 +60,13 @@ let dispatch = useDispatch();
             showForm?
             
                 <form className='col-6-sm'>
-                    <div className="mb-3">
+                    <div className="input-group mb-3">
                         <input type="text" className="form-control" id="title" aria-describedby="title" placeholder='Title' onChange={handleTitleField}/>
+
+                        <span class="input-group-text">Github</span>
+                        <input type="text" class="form-control" placeholder="https://github.com/?" aria-label="Https" onChange={handleGithub} ></input>
                     </div>
+
                     <div className="mb-3">
                         <textarea className="form-control" id="content" placeholder='Content' onChange={handleTitleContentField}/>
                     </div>

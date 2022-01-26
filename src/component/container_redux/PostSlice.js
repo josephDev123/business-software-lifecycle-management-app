@@ -27,10 +27,20 @@ export const PostSlice = createSlice({
     delete_card:(state, action)=>{
         let card_id = action.payload;
         return state.filter(item=> item.id !== card_id);
+    },
+
+    openModal: (state, action)=>{
+        let card_id = action.payload;
+        return state.map(items=>items.id === card_id?{...items, modal:true}:items)
+    },
+
+    closeModal: (state, action)=>{
+        let card_id = action.payload;
+        return state.map(items=>items.id === card_id?{...items, modal:false}:items)
     }
 }
 
 })
 
-export const{addPost, changeState, delete_card} = PostSlice.actions;
+export const{addPost, changeState, delete_card, openModal, closeModal} = PostSlice.actions;
 export default PostSlice.reducer;

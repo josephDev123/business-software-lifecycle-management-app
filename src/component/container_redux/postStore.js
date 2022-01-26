@@ -10,6 +10,10 @@ export const PostStore= configureStore({
     }
 })
 
-PostStore.subscribe(throttle(()=>{
+PostStore.subscribe(()=>{
     saveState(PostStore.getState().post);
-}))
+})
+
+// PostStore.subscribe(1000,throttle(()=>{
+//     saveState(PostStore.getState().post);
+// }))
