@@ -21,7 +21,7 @@
 
     body::after {
         padding: 10px;
-        color: red;
+        color: black;
         content: 'Sorry, this App/Software can\'t be view by mobile, tablet and android phones';
     }
 
